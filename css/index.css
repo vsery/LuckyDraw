@@ -1,0 +1,68 @@
+* { margin: 0; padding: 0; }
+a { text-decoration: none; }
+html, body { font-family: "Microsoft YaHei"; font-size: 62.5%; } html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video, input { font-weight: normal; margin: 0; padding: 0; vertical-align: baseline; border: 0; } @media screen and (min-width:320px) and (max-width:359px) {
+    html, body { font-size: 58.6% !important; }
+}
+@media screen and (min-width:360px) and (max-width:374px) {
+    html, body { font-size: 60.3% !important; }
+}
+@media screen and (min-width:375px) and (max-width:383px) {
+    html, body { font-size: 62.5% !important; }
+}
+@media screen and (min-width:384px) and (max-width:399px) {
+    html, body { font-size: 65.0% !important; }
+}
+@media screen and (min-width:400px) and (max-width:413px) {
+    html, body { font-size: 68.1% !important; }
+}
+@media screen and (min-width:414px) and (max-width:431px) {
+    html, body { font-size: 70.8% !important; }
+}
+@media screen and (min-width:432px) and (max-width:479px) {
+    html, body { font-size: 74.3% !important; }
+}
+@media screen and (min-width:480px) {
+    html, body { font-size: 76% !important; }
+    body { width: 480px; margin: 0 auto; }
+}
+body { background-color: #f0265b; }
+#top { background-image: url(../images/top-background.jpg); background-size: cover; width: 100%; height: auto; position: relative; }
+#top .btn-active { position: absolute; right: 1rem; top: 1rem; width: auto; height: 2rem; line-height: 2rem; background-color: white; padding: 0 .75rem 0 .25rem; border-radius: 1rem; }
+#top .btn-active i.icon { width: 1.4rem; height: 1.4rem; background-image: url(../images/box.png); background-size: cover; display: inline-block; margin-top: .3rem; vertical-align: top; }
+#top .btn-active span { color: #f0265b; }
+#top .banner,
+#top .banner img { width: 100%; height: auto; }
+#top .message-box { line-height: 1.5rem; width: 15rem; margin: 0 auto; background-color: rgba(0, 0, 0, .2); border-radius: 1rem; padding: .35rem .75rem; margin-top: -6rem; text-align: center; }
+#top .message-box .icon.icon-message { width: 1.4rem; height: 1.4rem; vertical-align: bottom; display: inline-block; background-image: url(../images/message.png); background-size: cover; }
+#top .message-box span { font-size: 1.2rem; vertical-align: middle; }
+#top .message-box span.white { color: white; }
+#top .message-box span.yellow { color: #ffe138; }
+#content-box { width: 100%; min-height: 30rem; }
+#content-box .header { background-image: url(../images/content.png); background-repeat: no-repeat; background-position: top; background-size: cover; width: 100%; height: 4.5rem; }
+#content-box .content,
+#content-box .message,
+#content-box .share,
+#content-box .desc { background-color: #ffc552; padding: 1rem 0; }
+#lottery, #lottery * { box-sizing: border-box; }
+#lottery { width: 29rem; height: 24rem; margin: 0 auto; border-radius: 1rem; padding: 1.15rem; background-color: #f0265b; background-image: url(../images/sort.png); background-size: cover; }
+#lottery .items-box { width: 100%; height: 100%; background-color: #b21f31; padding: .45rem; border-radius: .5rem; }
+#lottery .item { width: 25%; height: 5.2rem; float: left; display: inline-block; padding: .25rem; overflow: hidden; box-sizing: border-box; }
+#lottery .item img { background-color: white; width: 100%; height: 100%; border-radius: .5rem; border: .25rem solid #fa5b00; }
+#lottery .item.active img { background-color: #feef6e; }
+#lottery .item-group { width: 25%; height: 10.4rem; float: right; display: inline-block; }
+#lottery .item-group .item { width: 100%; }
+#lottery .item-btn { width: 50%; height: 10.4rem; float: right; background-image: url(../images/btn.png); background-size: cover; text-align: center; padding-top: 1.5rem; }
+#lottery .item-btn a { font-size: 2.6rem; line-height: 3.2rem; color: #f0265b; font-weight: 600; letter-spacing: .5rem; }
+#content-box .message { margin: 0 auto; text-align: center; font-size: 1.2rem; line-height: 1.6rem; font-weight: 500; }
+#content-box .message span { font-weight: 500; }
+#content-box .message span.val { color: #f0265b; }
+#content-box .share { padding: 1rem 0 2rem; }
+#content-box .share a.btn { width: 29rem; margin: 0 auto; background-image: url(../images/share.png); background-size: 100% 100%; height: 4rem; display: block; text-align: center; font-size: 2rem; color: white; line-height: 3.4rem; }
+#content-box .desc .line { margin-bottom: 1rem; width: 29rem; margin: 0 auto; height: 2px; background-color: #f2b63f; display: block; }
+#content-box .desc .title { width: 29rem; height: auto; margin: 0 auto; }
+#content-box .desc .title img { width: 100%; height: auto; }
+#content-box .desc .desc-box { width: 29rem; margin: 0 auto; }
+#content-box .desc .desc-box li { list-style: none; font-weight: 500; margin-bottom: .75rem; color: #3f1010; }
+#content-box .desc .desc-box li.title { font-weight: bold; line-height: 2rem; }
+.layui-m-layercont,
+.max-img { max-width: 29rem; height: auto; }

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width" />
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+    <div id="top">
+        <div class="btn-active">
+            <i class="icon"></i>
+            <span>我获得的</span>
+        </div>
+        <div class="banner">
+            <img src="images/banner.png">
+        </div>
+        <div class="message-box">
+            <i class="icon icon-message"></i>
+            <span class="white">恭喜</span> <span class="white">185****6168</span> <span class="white">抽中</span> <span class="yellow">免单</span>
+        </div>
+    </div>
+    <div id="content-box">
+        <div class="header"></div>
+        <div class="content">
+            <div id="lottery">
+                <div class="items-box" id="draw">
+                    <div class="item item-index-1"><img src="../boxs/boxs2.png" alt=""></div>
+                    <div class="item item-index-2"><img src="../boxs/boxs3.png" alt=""></div>
+                    <div class="item item-index-3"><img src="../boxs/boxs2.png" alt=""></div>
+                    <div class="item item-index-4"><img src="../boxs/boxs3.png" alt=""></div>
+                    <div class="item-group">
+                        <div class="item item-index-5"><img src="../boxs/boxs2.png" alt=""></div>
+                        <div class="item item-index-6"><img src="../boxs/boxs3.png" alt=""></div>
+                    </div>
+                    <div class="item-btn item-index-0">
+                        <a href="JavaScript:;" class="btn" id="draw-btn">立即<br/>抽奖</a></div>
+                    <div class="item-group">
+                        <div class="item item-index-12"><img src="../boxs/boxs2.png" alt=""></div>
+                        <div class="item item-index-11"><img src="../boxs/boxs3.png" alt=""></div>
+                    </div>
+                    <div class="item item-index-10"><img src="../boxs/boxs2.png" alt=""></div>
+                    <div class="item item-index-9"><img src="../boxs/boxs3.png" alt=""></div>
+                    <div class="item item-index-8"><img src="../boxs/boxs2.png" alt=""></div>
+                    <div class="item item-index-7"><img src="../boxs/boxs3.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="message">
+            你还有 <span class="val">1</span> 次抽奖机会
+            <br/> 分享本页面可多获得
+            <span>1</span>次抽奖机会
+        </div>
+        <div class="share">
+            <a href="JavaScript:;" class="btn">立即分享</a>
+        </div>
+        <div class="desc">
+            <i class="line"></i>
+            <div class="title">
+                <img src="images/desc.png" alt="">
+            </div>
+            <ul class="desc-box">
+                <li class="title">活动规则：</li>
+                <li>1、活动期间同一用户每天有1次抽奖机会，分享好友可额外获得1次抽奖机会；</li>
+                <li>2、折扣券当天领取当日有效，超时未使用则自动过期；</li>
+                <li>3、折扣券可在全城范围内支持哇米扫码点餐的餐厅使用；</li>
+                <li>4、杜绝商家及消费者任何形式的刷单、虚假消费行为，平台一经查证将立即终止合作并封号处理。</li>
+                <li class="title">使用规则：</li>
+                <li>1、折扣券领取后，在确认订单页面选择使用折扣券</li>
+                <li>2、折扣券、免单券优惠上限为300元，超出部分用户另行付费；</li>
+                <li>3、折扣券优惠部分仅限菜金，餐具、酒水、饮料等不参与折扣优惠；</li>
+                <li>4、订单消费方式仅限堂食，外送打包不参与优惠；</li>
+            </ul>
+        </div>
+    </div>
+    <div id='info' style="display : none">
+        <a href=""><img class="max-img" src="images/tk_img.png"></a>
+        <h1>100元</h1>
+    </div>
+    <!--弹窗layer-->
+    <script src="js/layer.js"></script>
+    <script type="text/javascript">
+    var lottery = {
+        index: 7, //当前转动到哪个位置，起点位置
+        count: 0, //总共有多少个位置
+        timer: 0, //setTimeout的ID，用clearTimeout清除
+        speed: 20, //初始转动速度
+        times: 0, //转动次数
+        cycle: 50, //转动基本次数：即至少需要转动多少次再进入抽奖环节
+        prize: -1, //中奖位置
+        init: function(id) {
+            if ($('#' + id).find('.item').length > 0) {
+                $lottery = $('#' + id);
+                $units = $lottery.find('.item');
+                this.obj = $lottery;
+                this.count = $units.length;
+                console.log(this.obj,this.count,$lottery)
+                $lottery.find('.item.item-index-' + this.index).addClass('active');
+            };
+        },
+        roll: function() {
+            var index = this.index;
+            var count = this.count;
+            var lottery = this.obj;
+            $lottery.find('.item.item-index-' + index).removeClass('active');
+            index += 1;
+            if (index > count - 1) { index = 0 };
+            $lottery.find('.item.item-index-' + index).addClass('active');
+            this.index = index;
+            return false;
+        },
+        stop: function(index) {
+            this.prize = index;
+            return false;
+        }
+    };
+
+    function roll() {
+        lottery.times += 1;
+        lottery.roll(); //转动过程调用的是lottery的roll方法，这里是第一次调用初始化
+        if (lottery.times > lottery.cycle + 10 && lottery.prize == lottery.index) {
+            clearTimeout(lottery.timer);
+            layer.open({
+                type: 1,
+                shadeClose: true,
+                shade: false,
+                maxmin: true, //开启最大化最小化按钮
+                area: ['893px', '600px'],
+                content: $("#info").html()
+            });
+            lottery.prize = -1;
+            lottery.times = 0;
+            click = false;
+        } else {
+            if (lottery.times < lottery.cycle) {
+                lottery.speed -= 10;
+            } else if (lottery.times == lottery.cycle) {
+                var index = Math.random() * (lottery.count) | 0; //静态演示，随机产生一个奖品序号，实际需请求接口产生
+                lottery.prize = index;
+            } else {
+                if (lottery.times > lottery.cycle + 10 && ((lottery.prize == 0 && lottery.index == 7) || lottery.prize == lottery.index + 1)) {
+                    lottery.speed += 110;
+                } else {
+                    lottery.speed += 20;
+                }
+            }
+            if (lottery.speed < 40) {
+                lottery.speed = 40;
+            };
+            lottery.timer = setTimeout(roll, lottery.speed); //循环调用
+        }
+        return false;
+    }
+    var click = false;
+    window.onload = function() {
+        lottery.init('draw');
+        $('#draw-btn').click(function() {
+            if (click) { //click控制一次抽奖过程中不能重复点击抽奖按钮，后面的点击不响应
+                return false;
+            } else {
+                lottery.speed = 100;
+                console.log(lottery)
+                roll(); //转圈过程不响应click事件，会将click置为false
+                click = true; //一次抽奖完成后，设置click为true，可继续抽奖      
+                return false;
+            }
+        });
+    };
+    </script>
+</body>
+
+</html>
